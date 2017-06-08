@@ -1,0 +1,58 @@
+package ch.it.bzz.coolshoes.view;
+ 
+import javax.swing.*;
+import javax.swing.border.*;
+import java.awt.*;
+import java.awt.event.*;
+ 
+/**
+ *
+ * @author SecretofGod
+ */
+public class LoginView {
+ 
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("Log In Here!");
+        frame.setSize(300,150);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+         
+        JPanel panel = new JPanel();
+        frame.add(panel);
+        logonComponents(panel);
+        LoginView access = new LoginView();
+         
+        frame.setVisible(true);
+ 
+    }
+private static void logonComponents(JPanel panel) {
+    panel.setLayout(null);
+     
+    JLabel user = new JLabel("Username");
+    user.setBounds(10, 10, 80, 25);
+    panel.add(user);
+     
+    JTextField text = new JTextField(13);
+    text.setBounds(100, 10, 160, 25);
+    panel.add(text);
+     
+    JLabel pass = new JLabel("Password");
+    pass.setBounds(10, 40, 80, 25);
+    panel.add(pass);
+     
+    JPasswordField secret = new JPasswordField(13);
+    secret.setBounds(100, 40, 160, 25);
+    panel.add(secret);
+     
+    JButton login = new JButton("Access");
+    login.setBounds(10, 80, 120, 25);
+    panel.add(login);
+     
+    JButton end = new JButton("Cancel");
+    end.setBounds(160, 80, 120, 25);
+    panel.add(end);
+ 
+}
+}
