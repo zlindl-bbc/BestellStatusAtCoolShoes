@@ -1,0 +1,18 @@
+package ch.it.bzz.coolshoes.controller;
+
+import java.awt.*;
+import java.awt.event.*;
+
+class LoginListener implements ActionListener {
+
+    public void actionPerformed(ActionEvent e) {
+        Object quelle = e.getSource();
+        if (quelle.equals(btnAnfuegen)) {
+
+            txtFeld1.setText("Hallo");
+
+        }
+
+    }
+
+}

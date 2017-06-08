@@ -1,0 +1,43 @@
+package ch.it.bzz.coolshoes.view;
+
+
+
+import java.awt.*;
+import java.awt.event.*;
+
+public class Login extends Frame {
+    LoginListener LogListener;
+
+    TextField txtFeld1;
+
+    Button btnAnzeigen;
+
+    public static void main(String[] args) {
+        Login f = new Login();
+        f.setVisible(true);
+    }
+
+    public Login() {
+        super("Fenster mit Textfeldern");
+
+        setBounds(100, 100, 480, 205);
+        setLayout(null);
+
+        LogListener = new LoginListener();
+
+        txtFeld1 = new TextField(" Start");
+        txtFeld1.setBounds(12, 23, 100, 100);
+        add(txtFeld1);
+
+        btnAnzeigen = new Button("Login");
+        btnAnzeigen.setBounds(360, 80, 100, 23);
+        btnAnzeigen.addActionListener(LogListener);
+        add(btnAnzeigen);
+
+        addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent we) {
+                System.exit(0);
+            }
+        });
+
+    }

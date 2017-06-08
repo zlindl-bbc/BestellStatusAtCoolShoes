@@ -1,0 +1,46 @@
+package ch.it.bzz.coolshoes.controller;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+
+/**
+ * @author Luca Lindegger
+ * @date 2017-06-08
+ * @version 1.0
+ */
+
+public class LoginActionListener implements ActionListener {
+
+	private JTextField usernameField;
+	private JPasswordField passwordField;
+	private JButton loginButton;
+	private JButton cancelButton;
+	
+	public LoginActionListener(JTextField usernameField, JPasswordField passwordField, JButton loginButton, JButton cancelButton) {
+		this.usernameField = usernameField;
+		this.passwordField = passwordField;
+		this.loginButton = loginButton;
+		this.cancelButton = cancelButton;
+	}
+	
+	public void actionPerformed(ActionEvent e) {
+		System.out.println();
+		System.out.println(e.());
+		
+//		if(e.getSource() == loginButton){
+//			System.out.println("Login wird überprüft...");
+//		}
+//		else {
+//			usernameField.setText("");
+//			passwordField.setText("");
+//			usernameField.requestFocusInWindow();
+//		}
+		
+	}
+	
+}

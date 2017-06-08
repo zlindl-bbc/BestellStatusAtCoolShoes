@@ -1,0 +1,45 @@
+package ch.it.bzz.coolshoes.controller;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+
+import ch.it.bzz.coolshoes.view.LoginView;
+
+/**
+ * @author Luca Lindegger
+ * @date 2017-06-08
+ * @version 1.0
+ */
+
+public class LoginActionListener extends JFrame implements ActionListener{
+
+	private static final long serialVersionUID = 1L;
+	
+	private LoginView loginView;
+	private JTextField usernameField;
+	private JPasswordField passwordField;
+    private JButton loginButton;¨
+    private JButton cancelButton;
+    
+
+    public LoginActionListener(){
+        // set calc layout
+        this.setLayout(new BorderLayout(1,1));
+        dPanel = new DPanel(this); // here is the trick ;)
+    }
+    public void actionPerformed(ActionEvent e) {
+        String command = e.getActionCommand();
+        resultText.setText(command);
+        // **** your code ****/
+    }
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}    
+}
