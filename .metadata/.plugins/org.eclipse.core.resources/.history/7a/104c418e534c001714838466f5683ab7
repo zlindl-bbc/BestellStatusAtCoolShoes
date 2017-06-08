@@ -71,7 +71,6 @@ public class LoginView {
 		registerLink = new JLabel("Not registered yet?");
 		registerLink.setBounds(10, 70, 120, 25);
 		registerLink.setForeground (Color.blue);
-		registerLink.addMouseListener(notRegisteredListener);
 		panel.add(registerLink);
 		
 		loginButton = new JButton("Login");

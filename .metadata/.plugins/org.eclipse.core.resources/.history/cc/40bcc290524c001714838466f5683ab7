@@ -1,12 +1,10 @@
 package ch.it.bzz.coolshoes.view;
 
-import java.awt.Color;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseListener;
 
 import javax.swing.*;
 
-import ch.it.bzz.coolshoes.controller.LoginListener;
+import ch.it.bzz.coolshoes.controller.LoginActionListener;
 
 /**
  * @author Luca Lindegger
@@ -22,8 +20,7 @@ public class LoginView {
 	private static JButton loginButton;
 	private static JButton cancelButton;
 
-	static ActionListener loginActionListener = new LoginListener();
-	static MouseListener notRegisteredListener = new LoginListener();
+	static ActionListener loginActionListener = new LoginActionListener();
 
 	/**
 	 * Main method
@@ -69,9 +66,7 @@ public class LoginView {
 		panel.add(passwordField);
 		
 		registerLink = new JLabel("Not registered yet?");
-		registerLink.setBounds(10, 70, 120, 25);
-		registerLink.setForeground (Color.blue);
-		registerLink.addMouseListener(notRegisteredListener);
+		registerLink.setBounds(10, 80, 120, 25);
 		panel.add(registerLink);
 		
 		loginButton = new JButton("Login");

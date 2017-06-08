@@ -1,12 +1,10 @@
 package ch.it.bzz.coolshoes.view;
 
-import java.awt.Color;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseListener;
 
 import javax.swing.*;
 
-import ch.it.bzz.coolshoes.controller.LoginListener;
+import ch.it.bzz.coolshoes.controller.LoginActionListener;
 
 /**
  * @author Luca Lindegger
@@ -18,12 +16,10 @@ public class LoginView {
 	private static JTextField usernameField;
 	private static JLabel passwordLabel;
 	private static JPasswordField passwordField;
-	private static JLabel registerLink;
 	private static JButton loginButton;
 	private static JButton cancelButton;
 
-	static ActionListener loginActionListener = new LoginListener();
-	static MouseListener notRegisteredListener = new LoginListener();
+	static ActionListener loginActionListener = new LoginActionListener();
 
 	/**
 	 * Main method
@@ -32,7 +28,7 @@ public class LoginView {
 	 */
 	public static void main(String[] args) {
 		JFrame frame = new JFrame("Login");
-		frame.setSize(300, 175);
+		frame.setSize(300, 190);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		JPanel panel = new JPanel();
@@ -67,20 +63,14 @@ public class LoginView {
 		passwordField = new JPasswordField(13);
 		passwordField.setBounds(100, 40, 160, 25);
 		panel.add(passwordField);
-		
-		registerLink = new JLabel("Not registered yet?");
-		registerLink.setBounds(10, 70, 120, 25);
-		registerLink.setForeground (Color.blue);
-		registerLink.addMouseListener(notRegisteredListener);
-		panel.add(registerLink);
-		
+
 		loginButton = new JButton("Login");
-		loginButton.setBounds(10, 100, 120, 25);
+		loginButton.setBounds(10, 80, 160, 25);
 		loginButton.addActionListener(loginActionListener);
 		panel.add(loginButton);
 
 		cancelButton = new JButton("Cancel");
-		cancelButton.setBounds(160, 100, 120, 25);
+		cancelButton.setBounds(160, 80, 120, 25);
 		cancelButton.addActionListener(loginActionListener);
 		panel.add(cancelButton);
 
