@@ -4,26 +4,31 @@ import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseListener;
 
-import javax.swing.*;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
 
-import ch.it.bzz.coolshoes.controller.LoginListener;
+import ch.it.bzz.coolshoes.controller.RegisterListener;
 
 /**
  * @author Luca Lindegger
  * @date 2017-06-08
  * @version 1.0
  */
-public class LoginView {
+public class RegisterView {
   private static JLabel usernameLabel;
   private static JTextField usernameField;
   private static JLabel passwordLabel;
   private static JPasswordField passwordField;
-  private static JLabel registerLink;
-  private static JButton loginButton;
+  private static JLabel loginLink;
+  private static JButton registerButton;
   private static JButton cancelButton;
 
-  static ActionListener loginActionListener = new LoginListener();
-  static MouseListener notRegisteredListener = new LoginListener();
+  static ActionListener registerActionListener = new RegisterListener();
+  static MouseListener alreadyRegisteredListener = new RegisterListener();
 
   /**
    * Main method
@@ -31,14 +36,14 @@ public class LoginView {
    * @param args
    */
   public static void main(String[] args) {
-    JFrame frame = new JFrame("Login");
+    JFrame frame = new JFrame("Register");
     frame.setSize(300, 175);
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     JPanel panel = new JPanel();
     frame.add(panel);
     loginComponents(panel);
-    LoginView loginView = new LoginView();
+    RegisterView loginView = new RegisterView();
 
     frame.setVisible(true);
 
@@ -68,20 +73,20 @@ public class LoginView {
     passwordField.setBounds(100, 40, 160, 25);
     panel.add(passwordField);
 
-    registerLink = new JLabel("Not registered yet?");
-    registerLink.setBounds(10, 70, 120, 25);
-    registerLink.setForeground(Color.blue);
-    registerLink.addMouseListener(notRegisteredListener);
-    panel.add(registerLink);
+    loginLink = new JLabel("Already registered yet?");
+    loginLink.setBounds(10, 70, 120, 25);
+    loginLink.setForeground(Color.blue);
+    loginLink.addMouseListener(alreadyRegisteredListener);
+    panel.add(loginLink);
 
-    loginButton = new JButton("Login");
-    loginButton.setBounds(10, 100, 120, 25);
-    loginButton.addActionListener(loginActionListener);
-    panel.add(loginButton);
+    registerButton = new JButton("Register");
+    registerButton.setBounds(10, 100, 120, 25);
+    registerButton.addActionListener(registerActionListener);
+    panel.add(registerButton);
 
     cancelButton = new JButton("Cancel");
     cancelButton.setBounds(160, 100, 120, 25);
-    cancelButton.addActionListener(loginActionListener);
+    cancelButton.addActionListener(registerActionListener);
     panel.add(cancelButton);
 
   }

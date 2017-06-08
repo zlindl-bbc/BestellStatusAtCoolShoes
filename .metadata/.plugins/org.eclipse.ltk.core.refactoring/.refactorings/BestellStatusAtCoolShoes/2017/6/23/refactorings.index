@@ -18,3 +18,9 @@
 1496922608945	Delete element
 1496922612046	Delete element
 1496930446241	Rename type 'LoginActionListener'
+1496931102445	Copy compilation unit
+1496931111258	Copy compilation unit
+1496931292899	Rename field 'notRegisteredListener'
+1496931304463	Rename field 'registerLink'
+1496931314441	Rename field 'loginButton'
+1496931356690	Rename field 'loginActionListener'

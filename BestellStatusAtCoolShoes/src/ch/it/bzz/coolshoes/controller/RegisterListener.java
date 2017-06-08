@@ -17,12 +17,12 @@ import ch.it.bzz.coolshoes.view.LoginView;
  * @version 1.0
  */
 
-public class LoginListener implements ActionListener, MouseListener {
+public class RegisterListener implements ActionListener, MouseListener {
 
   public void actionPerformed(ActionEvent e) {
     JButton source = (JButton) e.getSource();
-    if (source.getText().equals("Login")) {
-      JOptionPane.showMessageDialog(null, "Login-Button clicked!! Username: '"
+    if (source.getText().equals("Register")) {
+      JOptionPane.showMessageDialog(null, "Register-Button clicked!! Username: '"
           + LoginView.getUsernameField() + "', Password: '" + LoginView.getPasswordField() + "'.");
     } else {
       LoginView.setBlankAndRequestInFocus();
@@ -31,7 +31,7 @@ public class LoginListener implements ActionListener, MouseListener {
 
   @Override
   public void mouseClicked(MouseEvent e) {
-    JOptionPane.showMessageDialog(null, "Not Registered link has been clicked! ");
+    JOptionPane.showMessageDialog(null, "Already Registered link has been clicked! ");
 
   }
 
