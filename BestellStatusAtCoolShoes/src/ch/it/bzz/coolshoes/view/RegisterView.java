@@ -35,7 +35,7 @@ public class RegisterView {
    * 
    * @param args
    */
-  public static void main(String[] args) {
+  public static void RegisterView() {
     JFrame frame = new JFrame("Register");
     frame.setSize(300, 175);
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -43,7 +43,7 @@ public class RegisterView {
     JPanel panel = new JPanel();
     frame.add(panel);
     loginComponents(panel);
-    RegisterView loginView = new RegisterView();
+    RegisterView registerView = new RegisterView();
 
     frame.setVisible(true);
 
@@ -103,6 +103,14 @@ public class RegisterView {
     usernameField.setText("");
     passwordField.setText("");
     usernameField.requestFocusInWindow();
+  }
+  
+  public static void main(String[] args){
+    javax.swing.SwingUtilities.invokeLater(new Runnable() {
+      public void run() {
+        RegisterView();
+      }
+    });
   }
 
 }
