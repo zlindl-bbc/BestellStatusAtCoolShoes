@@ -23,7 +23,7 @@ public class RegisterListener implements ActionListener, MouseListener {
     JButton source = (JButton) e.getSource();
     if (source.getText().equals("Register")) {
       JOptionPane.showMessageDialog(null, "Register-Button clicked!! Username: '"
-          + LoginView.getUsernameField() + "', Password: '" + LoginView.getPasswordField() + "'.");
+          + LoginView.getForenameField() + "', Password: '" + LoginView.getPasswordField() + "'.");
     } else {
       LoginView.setBlankAndRequestInFocus();
     }

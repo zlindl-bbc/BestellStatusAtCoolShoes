@@ -1,0 +1,61 @@
+package ch.it.bzz.coolshoes.util;
+
+import java.io.IOException;
+import java.util.Properties;
+
+import ch.it.bzz.coolshoes.exception.CoolShoesException;
+
+/**
+ * @author Luca Lindegger
+ * @date 2017-06-27
+ * @version 1.0
+ */
+
+public class MySqlConnection {
+
+  private static MySqlConnection mySqlConnection = null;
+
+  private String dbURL;
+  private String dbUser;
+  private String dbPwd;
+
+  private MySqlConnection() {
+
+    try {
+      final Properties prop = PropertiesLoader.loadProperties();
+      setDbURL(prop.getProperty("connectionUrl",
+          "jdbc:mysql://phpmyadmin.bs-at-cs.bplaced.net:3306/bs-at-cs"));
+      setDbUser(prop.getProperty("dbUser", "bs-at-cs@localhost").trim());
+      setDbPwd(prop.getProperty("dbPwd", "Bestellstatus").trim());
+    } catch (IOException e) {
+      throw new CoolShoesException("Verbindung kann nicht aufgebaut werden.", e.toString());
+    }
+  }
+
+  public String getDbURL() {
+    return dbURL;
+  }
+
+  public void setDbURL(String dbURL) {
+    this.dbURL = dbURL;
+  }
+
+  public String getDbUser() {
+    return dbUser;
+  }
+
+  public void setDbUser(String dbUser) {
+    this.dbUser = dbUser;
+  }
+
+  public String getDbPwd() {
+    return dbPwd;
+  }
+
+  public void setDbPwd(String dbPwd) {
+    this.dbPwd = dbPwd;
+  }
+
+
+
+}

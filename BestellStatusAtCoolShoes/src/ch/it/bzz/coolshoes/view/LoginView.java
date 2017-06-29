@@ -14,8 +14,8 @@ import ch.it.bzz.coolshoes.controller.LoginListener;
  * @version 1.0
  */
 public class LoginView {
-  private static JLabel usernameLabel;
-  private static JTextField usernameField;
+  private static JLabel forenameLabel;
+  private static JTextField forenameField;
   private static JLabel passwordLabel;
   private static JPasswordField passwordField;
   private static JLabel registerLink;
@@ -52,13 +52,13 @@ public class LoginView {
   private static void loginComponents(JPanel panel) {
     panel.setLayout(null);
 
-    usernameLabel = new JLabel("Username");
-    usernameLabel.setBounds(10, 10, 80, 25);
-    panel.add(usernameLabel);
+    forenameLabel = new JLabel("Vorname");
+    forenameLabel.setBounds(10, 10, 80, 25);
+    panel.add(forenameLabel);
 
-    usernameField = new JTextField(13);
-    usernameField.setBounds(100, 10, 160, 25);
-    panel.add(usernameField);
+    forenameField = new JTextField(13);
+    forenameField.setBounds(100, 10, 160, 25);
+    panel.add(forenameField);
 
     passwordLabel = new JLabel("Password");
     passwordLabel.setBounds(10, 40, 80, 25);
@@ -86,8 +86,8 @@ public class LoginView {
 
   }
 
-  public static String getUsernameField() {
-    return usernameField.getText();
+  public static String getForenameField() {
+    return forenameField.getText();
   }
 
   public static String getPasswordField() {
@@ -95,9 +95,9 @@ public class LoginView {
   }
 
   public static void setBlankAndRequestInFocus() {
-    usernameField.setText("");
+    forenameField.setText("");
     passwordField.setText("");
-    usernameField.requestFocusInWindow();
+    forenameField.requestFocusInWindow();
   }
 
 }
