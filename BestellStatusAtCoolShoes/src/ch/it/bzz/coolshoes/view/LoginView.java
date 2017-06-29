@@ -68,7 +68,7 @@ public class LoginView {
     passwordField.setBounds(100, 40, 160, 25);
     panel.add(passwordField);
 
-    registerLink = new JLabel("Not registered yet?");
+    registerLink = new JLabel("Nicht registriert?");
     registerLink.setBounds(10, 70, 120, 25);
     registerLink.setForeground(Color.blue);
     registerLink.addMouseListener(notRegisteredListener);
@@ -79,7 +79,7 @@ public class LoginView {
     loginButton.addActionListener(loginActionListener);
     panel.add(loginButton);
 
-    cancelButton = new JButton("Cancel");
+    cancelButton = new JButton("Abbrechen");
     cancelButton.setBounds(160, 100, 120, 25);
     cancelButton.addActionListener(loginActionListener);
     panel.add(cancelButton);

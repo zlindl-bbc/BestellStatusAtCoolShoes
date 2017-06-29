@@ -13,3 +13,8 @@
 1498657501145	Rename method 'getUsernameField'
 1498667294577	Delete element
 1498672569166	Rename type 'SqlUtil'
+1498736660588	Rename field 'usernameLabel'
+1498736692462	Rename field 'usernameField'
+1498736702918	Rename field 'fornameField'
+1498737245273	Rename method 'getUsernameField'
+1498737408839	Delete element

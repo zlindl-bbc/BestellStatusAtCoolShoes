@@ -38,7 +38,9 @@ public class UserData {
     } catch (SQLException e) {
       throw new CoolShoesException("Es hat einen Fehler bei einer Datenbankabfrage gegeben.",
           e.toString());
-    } 
+    } finally {
+      MySqlConnection.closePsRs(ps, rs);
+    }
   }
 
   public static String getPassword(String forename) {
@@ -59,6 +61,28 @@ public class UserData {
     } catch (SQLException e) {
       throw new CoolShoesException("Es hat einen Fehler bei einer Datenbankabfrage gegeben.",
           e.toString());
+    } finally {
+      MySqlConnection.closePsRs(ps, rs);
+    }
+  }
+
+  public static boolean createUser(String name, String forename, String password) {
+    Connection con = null;
+    PreparedStatement ps = null;
+    String values = "('"+name+"', '"+forename+"', '"+password+"')";
+    String sql = "INSERT INTO Mitarbeiter (MAName, MAVorname, MAPasswort) VALUES "+values;
+
+    try {
+      con = MySqlConnection.getInstance();
+      ps = con.prepareStatement(sql);
+      ps.execute();
+      return true;
+    } catch (SQLException e) {
+      throw new CoolShoesException("Es hat einen Fehler bei einem Datenbankeintrage gegeben.",
+          e.toString());
+    }
+    finally {
+      MySqlConnection.closePs(ps);
     }
   }
 

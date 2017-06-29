@@ -61,4 +61,22 @@ public class MySqlConnection {
     MySqlConnection.con = con;
   }
 
+  public static void closePsRs(PreparedStatement ps, ResultSet rs) {
+    try {
+      rs.close();
+      closePs(ps);
+    } catch (SQLException e) {
+      throw new CoolShoesException("Eine Verbindung konnte nicht geschlossen werden!",
+          e.toString());
+    }
+  }
+  public static void closePs(PreparedStatement ps) {
+    try {
+      ps.close();
+    } catch (SQLException e) {
+      throw new CoolShoesException("Eine Verbindung konnte nicht geschlossen werden!",
+          e.toString());
+    }
+  }
+
 }

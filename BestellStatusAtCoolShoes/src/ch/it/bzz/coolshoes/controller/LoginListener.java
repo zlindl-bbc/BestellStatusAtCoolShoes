@@ -7,13 +7,11 @@ import java.awt.event.MouseListener;
 
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
-import javax.swing.JTextField;
 
 import org.apache.commons.lang.StringUtils;
-import org.hsqldb.lib.StringUtil;
 
-import ch.it.bzz.coolshoes.view.LoginView;
 import ch.it.bzz.coolshoes.dbconnection.UserData;
+import ch.it.bzz.coolshoes.view.LoginView;
 
 /**
  * @author Luca Lindegger
@@ -28,29 +26,24 @@ public class LoginListener implements ActionListener, MouseListener {
     if (source.getText().equals("Login")) {
       String forename = LoginView.getForenameField();
       String password = LoginView.getPasswordField();
-      
-      if(StringUtils.isBlank(forename) || StringUtils.isBlank(password)) {
-        JOptionPane.showMessageDialog(null, "Bitte füllen sie alle Felder aus...", "Felder leer", JOptionPane.WARNING_MESSAGE);
-      }
-      else {
-        if(UserData.doesExist(forename)) {
+
+      if (StringUtils.isBlank(forename) || StringUtils.isBlank(password)) {
+        JOptionPane.showMessageDialog(null, "Bitte füllen sie alle Felder aus...", "Felder leer",
+            JOptionPane.WARNING_MESSAGE);
+      } else {
+        if (UserData.doesExist(forename)) {
           String dbPassword = UserData.getPassword(forename);
-          if(password.equals(dbPassword)) {
+          if (password.equals(dbPassword)) {
             // open Main (logged-in part)
+          } else {
+            JOptionPane.showMessageDialog(null, "Passwort falsch!", "Login-Error",
+                JOptionPane.INFORMATION_MESSAGE);
           }
-          else {
-            JOptionPane.showMessageDialog(null, "Login-Error",
-                "Passwort falsch!", JOptionPane.INFORMATION_MESSAGE);
-          }
-        }
-        else {
-          JOptionPane.showMessageDialog(null, "Login-Error",
-              "Benutzer wurde nicht gefunden!", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+          JOptionPane.showMessageDialog(null, "Benutzer wurde nicht gefunden!", "Login-Error",
+              JOptionPane.INFORMATION_MESSAGE);
         }
       }
-      
-      JOptionPane.showMessageDialog(null, "Login-Button clicked!! Username: '"
-          + LoginView.getForenameField() + "', Password: '" + LoginView.getPasswordField() + "'.");
     } else {
       LoginView.setBlankAndRequestInFocus();
     }
@@ -58,7 +51,7 @@ public class LoginListener implements ActionListener, MouseListener {
 
   @Override
   public void mouseClicked(MouseEvent e) {
-    JOptionPane.showMessageDialog(null, "Not Registered link has been clicked! ");
+    // open Register view
 
   }
 

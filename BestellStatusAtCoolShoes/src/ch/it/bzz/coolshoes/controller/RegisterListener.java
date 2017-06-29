@@ -7,9 +7,12 @@ import java.awt.event.MouseListener;
 
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
-import javax.swing.JTextField;
 
+import org.apache.commons.lang.StringUtils;
+
+import ch.it.bzz.coolshoes.dbconnection.UserData;
 import ch.it.bzz.coolshoes.view.LoginView;
+import ch.it.bzz.coolshoes.view.RegisterView;
 
 /**
  * @author Luca Lindegger
@@ -21,43 +24,45 @@ public class RegisterListener implements ActionListener, MouseListener {
 
   public void actionPerformed(ActionEvent e) {
     JButton source = (JButton) e.getSource();
-    if (source.getText().equals("Register")) {
-      JOptionPane.showMessageDialog(null, "Register-Button clicked!! Username: '"
-          + LoginView.getForenameField() + "', Password: '" + LoginView.getPasswordField() + "'.");
+    String name = RegisterView.getNameField();
+    String forename = RegisterView.getForenameField();
+    String password = RegisterView.getPasswordField();
+
+    if (source.getText().equals("Registrieren")) {
+      if (StringUtils.isBlank(forename) || StringUtils.isBlank(password)) {
+        JOptionPane.showMessageDialog(null, "Bitte füllen sie alle Felder aus...", "Felder leer",
+            JOptionPane.WARNING_MESSAGE);
+      } else {
+        if (UserData.createUser(name, forename, password) == true) {
+          // TODO User Created
+        } else {
+          JOptionPane.showMessageDialog(null,
+              "User konnte nicht erstellt werden! \nBitte versuchen Sie es später noch einmal!",
+              "Registrieren fehlgeschlagen", JOptionPane.ERROR_MESSAGE);
+          RegisterView.setBlankAndRequestInFocus();
+        }
+      }
     } else {
-      LoginView.setBlankAndRequestInFocus();
+      RegisterView.setBlankAndRequestInFocus();
     }
   }
 
   @Override
   public void mouseClicked(MouseEvent e) {
-    JOptionPane.showMessageDialog(null, "Already Registered link has been clicked! ");
-
+    // TODO open login view
   }
 
   @Override
-  public void mouseEntered(MouseEvent e) {
-    // TODO Auto-generated method stub
-
-  }
+  public void mouseEntered(MouseEvent e) {}
 
   @Override
-  public void mouseExited(MouseEvent e) {
-    // TODO Auto-generated method stub
-
-  }
+  public void mouseExited(MouseEvent e) {}
 
   @Override
-  public void mousePressed(MouseEvent e) {
-    // TODO Auto-generated method stub
-
-  }
+  public void mousePressed(MouseEvent e) {}
 
   @Override
-  public void mouseReleased(MouseEvent e) {
-    // TODO Auto-generated method stub
-
-  }
+  public void mouseReleased(MouseEvent e) {}
 
 
 }
