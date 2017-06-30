@@ -19,3 +19,6 @@
 1498737245273	Rename method 'getUsernameField'
 1498737408839	Delete element
 1498744565757	Delete element
+1498813400760	Rename type 'LoginListener'
+1498813416067	Rename type 'RegisterListener'
+1498815135049	Rename type 'UserData'

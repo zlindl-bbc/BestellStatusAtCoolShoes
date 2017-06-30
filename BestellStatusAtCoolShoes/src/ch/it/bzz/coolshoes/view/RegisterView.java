@@ -11,7 +11,7 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-import ch.it.bzz.coolshoes.controller.RegisterListener;
+import ch.it.bzz.coolshoes.controller.RegisterController;
 
 /**
  * @author Luca Lindegger
@@ -29,8 +29,8 @@ public class RegisterView {
   private static JButton registerButton;
   private static JButton cancelButton;
 
-  static ActionListener registerActionListener = new RegisterListener();
-  static MouseListener alreadyRegisteredListener = new RegisterListener();
+  static ActionListener registerActionListener = new RegisterController();
+  static MouseListener alreadyRegisteredListener = new RegisterController();
 
   /**
    * Main method

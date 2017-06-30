@@ -1,0 +1,8 @@
+package ch.it.bzz.coolshoes.dbconnection;
+
+import java.util.List;
+
+public interface BestellungenDAO {
+
+  List<Bestellungen> bestellungen = null;
+}

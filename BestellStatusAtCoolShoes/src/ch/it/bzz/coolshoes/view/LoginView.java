@@ -6,7 +6,7 @@ import java.awt.event.MouseListener;
 
 import javax.swing.*;
 
-import ch.it.bzz.coolshoes.controller.LoginListener;
+import ch.it.bzz.coolshoes.controller.LoginController;
 
 /**
  * @author Luca Lindegger
@@ -22,8 +22,8 @@ public class LoginView {
   private static JButton loginButton;
   private static JButton cancelButton;
 
-  static ActionListener loginActionListener = new LoginListener();
-  static MouseListener notRegisteredListener = new LoginListener();
+  static ActionListener loginActionListener = new LoginController();
+  static MouseListener notRegisteredListener = new LoginController();
 
   /**
    * Main method

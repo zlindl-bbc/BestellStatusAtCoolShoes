@@ -1,0 +1,6 @@
+package ch.it.bzz.coolshoes.dbconnection;
+
+public interface BestellungenDAO {
+
+  List<Bestellungen>
+}
