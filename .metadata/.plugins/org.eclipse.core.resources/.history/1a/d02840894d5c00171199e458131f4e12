@@ -1,0 +1,56 @@
+package ch.it.bzz.coolshoes.util;
+
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.Properties;
+
+import ch.it.bzz.coolshoes.exception.CoolShoesException;
+
+/**
+ * @author Luca Lindegger
+ * @date 2017-06-27
+ * @version 1.0
+ */
+
+public class MySqlConnection {
+
+  private static Connection con = null;
+
+  // Host
+  private static String dbHost = "phpmyadmin.bs-at-cs.bplaced.net";
+
+  // Port
+  private static String dbPort = "3306";
+
+  // Databasename
+  private static String database = "bs-at-cs";
+
+  // Databaseuser
+  private static String dbUser = "bs-at-cs";
+
+  // Databasepassword
+  private static String dbPassword = "Bestellstatus";
+
+  private MySqlConnection() {
+    try {
+      // Load driver
+      Class.forName("com.mysql.jdbc.Driver");
+
+      // create connection
+      con = DriverManager.getConnection("jdbc:mysql://" + dbHost + ":" + dbPort + "/" + database
+          + "?" + "user=" + dbUser + "&" + "password=" + dbPassword);
+    } catch (ClassNotFoundException e) {
+      throw new CoolShoesException("Treiber kann nicht gelesen werden.", e.toString());
+    } catch (SQLException e) {
+      throw new CoolShoesException("Treiber kann nicht gelesen werden.", e.toString());
+    }
+  }
+  
+  public static Connection getInstance() {
+    if(con == null)
+      new MySqlConnection();
+    return con;
+  }
+}

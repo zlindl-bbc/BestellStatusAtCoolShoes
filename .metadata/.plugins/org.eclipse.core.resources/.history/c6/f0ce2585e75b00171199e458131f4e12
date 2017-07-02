@@ -1,0 +1,8 @@
+package ch.it.bzz.coolshoes.controller;
+
+import java.sql.Connection;
+
+public class LoginRegisterJDBC implements LoginRegisterDAO {
+
+  private Connection connection = null;
+}

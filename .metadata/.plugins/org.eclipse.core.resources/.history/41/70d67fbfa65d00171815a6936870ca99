@@ -1,0 +1,8 @@
+package ch.it.bzz.coolshoes.controller;
+
+import ch.it.bzz.coolshoes.dbconnection.BestellungenJdbcDAO;
+
+public class BestellungenController {
+
+  private BestellungenDAO bestellungenDAO = new BestellungenJdbcDAO();
+}

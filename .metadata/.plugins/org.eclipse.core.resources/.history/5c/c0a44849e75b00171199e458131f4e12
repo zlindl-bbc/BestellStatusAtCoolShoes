@@ -1,0 +1,5 @@
+package ch.it.bzz.coolshoes.controller;
+
+public interface LoginRegisterDAO {
+
+}

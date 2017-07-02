@@ -1,0 +1,11 @@
+package ch.it.bzz.coolshoes.model;
+
+public class Bestellungen {
+
+  private int BID;
+  private int FKKunde;
+  private int FKStatus;
+  private int FKMitarbeiter;
+  
+  
+}

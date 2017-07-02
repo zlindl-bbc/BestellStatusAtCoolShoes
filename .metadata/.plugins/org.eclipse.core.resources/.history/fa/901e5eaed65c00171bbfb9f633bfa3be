@@ -1,0 +1,11 @@
+package ch.it.bzz.coolshoes.model;
+
+public class Mitarbeiter {
+
+  private int MID;
+  private String MAName;
+  private String MAVorname;
+  private String MAPasswort;
+  
+  
+}

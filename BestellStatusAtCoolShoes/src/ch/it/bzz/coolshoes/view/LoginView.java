@@ -6,7 +6,7 @@ import java.awt.event.MouseListener;
 
 import javax.swing.*;
 
-import ch.it.bzz.coolshoes.controller.LoginListener;
+import ch.it.bzz.coolshoes.controller.LoginController;
 
 /**
  * @author Luca Lindegger
@@ -14,16 +14,16 @@ import ch.it.bzz.coolshoes.controller.LoginListener;
  * @version 1.0
  */
 public class LoginView {
-  private static JLabel usernameLabel;
-  private static JTextField usernameField;
+  private static JLabel forenameLabel;
+  private static JTextField forenameField;
   private static JLabel passwordLabel;
   private static JPasswordField passwordField;
   private static JLabel registerLink;
   private static JButton loginButton;
   private static JButton cancelButton;
 
-  static ActionListener loginActionListener = new LoginListener();
-  static MouseListener notRegisteredListener = new LoginListener();
+  static ActionListener loginActionListener = new LoginController();
+  static MouseListener notRegisteredListener = new LoginController();
 
   /**
    * Main method
@@ -52,13 +52,13 @@ public class LoginView {
   private static void loginComponents(JPanel panel) {
     panel.setLayout(null);
 
-    usernameLabel = new JLabel("Username");
-    usernameLabel.setBounds(10, 10, 80, 25);
-    panel.add(usernameLabel);
+    forenameLabel = new JLabel("Vorname");
+    forenameLabel.setBounds(10, 10, 80, 25);
+    panel.add(forenameLabel);
 
-    usernameField = new JTextField(13);
-    usernameField.setBounds(100, 10, 160, 25);
-    panel.add(usernameField);
+    forenameField = new JTextField(13);
+    forenameField.setBounds(100, 10, 160, 25);
+    panel.add(forenameField);
 
     passwordLabel = new JLabel("Password");
     passwordLabel.setBounds(10, 40, 80, 25);
@@ -68,7 +68,7 @@ public class LoginView {
     passwordField.setBounds(100, 40, 160, 25);
     panel.add(passwordField);
 
-    registerLink = new JLabel("Not registered yet?");
+    registerLink = new JLabel("Nicht registriert?");
     registerLink.setBounds(10, 70, 120, 25);
     registerLink.setForeground(Color.blue);
     registerLink.addMouseListener(notRegisteredListener);
@@ -79,15 +79,15 @@ public class LoginView {
     loginButton.addActionListener(loginActionListener);
     panel.add(loginButton);
 
-    cancelButton = new JButton("Cancel");
+    cancelButton = new JButton("Abbrechen");
     cancelButton.setBounds(160, 100, 120, 25);
     cancelButton.addActionListener(loginActionListener);
     panel.add(cancelButton);
 
   }
 
-  public static String getUsernameField() {
-    return usernameField.getText();
+  public static String getForenameField() {
+    return forenameField.getText();
   }
 
   public static String getPasswordField() {
@@ -95,9 +95,9 @@ public class LoginView {
   }
 
   public static void setBlankAndRequestInFocus() {
-    usernameField.setText("");
+    forenameField.setText("");
     passwordField.setText("");
-    usernameField.requestFocusInWindow();
+    forenameField.requestFocusInWindow();
   }
 
 }

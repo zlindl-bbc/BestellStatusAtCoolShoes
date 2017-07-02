@@ -1,0 +1,9 @@
+package ch.it.bzz.coolshoes.model;
+
+public class Collaborator {
+
+  int mid;
+  String name;
+  String forename;
+  
+}

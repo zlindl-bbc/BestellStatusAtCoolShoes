@@ -1,0 +1,14 @@
+package ch.it.bzz.coolshoes.model;
+
+import java.sql.Date;
+
+public class BestellStatus {
+
+  private int BSID;
+  private String Bestellnummer;
+  private String Status;
+  private Date Bearbeitung;
+  private Date Lieferunggeplant;
+  
+  
+}
