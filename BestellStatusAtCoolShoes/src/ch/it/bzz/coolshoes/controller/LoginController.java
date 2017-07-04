@@ -23,68 +23,69 @@ import ch.it.bzz.coolshoes.view.MainView;
 
 public class LoginController implements ActionListener, MouseListener {
 
-  private MitarbeiterDAO mitarbeiterDAO = new MitarbeiterJdbcDAO();
-  MainView mainView = new MainView();
-  
-  public void actionPerformed(ActionEvent e) {
-    JButton source = (JButton) e.getSource();
-    if (source.getText().equals("Login")) {
-      String forename = LoginView.getForenameField();
-      String password = LoginView.getPasswordField();
+	private MitarbeiterDAO mitarbeiterDAO = new MitarbeiterJdbcDAO();
+	MainView mainView = new MainView();
+	LoginView loginView = new LoginView();
 
-      if (StringUtils.isBlank(forename) || StringUtils.isBlank(password)) {
-        JOptionPane.showMessageDialog(null, "Bitte füllen sie alle Felder aus...", "Felder leer",
-            JOptionPane.WARNING_MESSAGE);
-      } else {
-        if (mitarbeiterDAO.doesExist(forename)) {
-          String dbPassword = mitarbeiterDAO.getPassword(forename);
-          if (password.equals(dbPassword)) {
-            // open Main (logged-in part)
-        	  mainView.initGui();
-        	  
-          } else {
-            JOptionPane.showMessageDialog(null, "Passwort falsch!", "Login-Error",
-                JOptionPane.INFORMATION_MESSAGE);
-          }
-        } else {
-          JOptionPane.showMessageDialog(null, "Benutzer wurde nicht gefunden!", "Login-Error",
-              JOptionPane.INFORMATION_MESSAGE);
-        }
-      }
-    } else {
-      LoginView.setBlankAndRequestInFocus();
-    }
-  }
+	public void actionPerformed(ActionEvent e) {
+		JButton source = (JButton) e.getSource();
+		if (source.getText().equals("Login")) {
+			String forename = LoginView.getForenameField();
+			String password = LoginView.getPasswordField();
 
-  @Override
-  public void mouseClicked(MouseEvent e) {
-    // open Register view
+			if (StringUtils.isBlank(forename) || StringUtils.isBlank(password)) {
+				JOptionPane.showMessageDialog(null, "Bitte füllen sie alle Felder aus...", "Felder leer",
+						JOptionPane.WARNING_MESSAGE);
+			} else {
+				if (mitarbeiterDAO.doesExist(forename)) {
+					String dbPassword = mitarbeiterDAO.getPassword(forename);
+					if (password.equals(dbPassword)) {
+						// open Main (logged-in part)
+						mainView.initGUI();
+						
 
-  }
+					} else {
+						JOptionPane.showMessageDialog(null, "Passwort falsch!", "Login-Error",
+								JOptionPane.INFORMATION_MESSAGE);
+					}
+				} else {
+					JOptionPane.showMessageDialog(null, "Benutzer wurde nicht gefunden!", "Login-Error",
+							JOptionPane.INFORMATION_MESSAGE);
+				}
+			}
+		} else {
+			LoginView.setBlankAndRequestInFocus();
+		}
+	}
 
-  @Override
-  public void mouseEntered(MouseEvent e) {
-    // TODO Auto-generated method stub
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		// open Register view
 
-  }
+	}
 
-  @Override
-  public void mouseExited(MouseEvent e) {
-    // TODO Auto-generated method stub
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
 
-  }
+	}
 
-  @Override
-  public void mousePressed(MouseEvent e) {
-    // TODO Auto-generated method stub
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
 
-  }
+	}
 
-  @Override
-  public void mouseReleased(MouseEvent e) {
-    // TODO Auto-generated method stub
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
 
-  }
+	}
 
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
+
+	}
 
 }
