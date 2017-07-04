@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="BestellStatusAtCoolShoes/src"/>
+	<classpathentry kind="lib" path="BestellStatusAtCoolShoes/lib/commons-lang-2.6.jar"/>
+	<classpathentry kind="lib" path="BestellStatusAtCoolShoes/lib/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="BestellStatusAtCoolShoes/lib/hsqldb.jar"/>
+	<classpathentry kind="lib" path="BestellStatusAtCoolShoes/lib/jackcess-2.1.6.jar"/>
+	<classpathentry kind="lib" path="BestellStatusAtCoolShoes/lib/mysql-connector-java-5.1.42-bin.jar"/>
+	<classpathentry kind="lib" path="BestellStatusAtCoolShoes/lib/ucanaccess-4.0.2.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="BestellStatusAtCoolShoes/bin"/>
+</classpath>

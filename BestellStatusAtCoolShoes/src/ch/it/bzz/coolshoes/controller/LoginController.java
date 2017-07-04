@@ -13,6 +13,7 @@ import org.apache.commons.lang.StringUtils;
 import ch.it.bzz.coolshoes.dbconnection.MitarbeiterDAO;
 import ch.it.bzz.coolshoes.dbconnection.MitarbeiterJdbcDAO;
 import ch.it.bzz.coolshoes.view.LoginView;
+import ch.it.bzz.coolshoes.view.MainView;
 
 /**
  * @author Luca Lindegger
@@ -23,6 +24,7 @@ import ch.it.bzz.coolshoes.view.LoginView;
 public class LoginController implements ActionListener, MouseListener {
 
   private MitarbeiterDAO mitarbeiterDAO = new MitarbeiterJdbcDAO();
+  MainView mainView = new MainView();
   
   public void actionPerformed(ActionEvent e) {
     JButton source = (JButton) e.getSource();
@@ -38,6 +40,8 @@ public class LoginController implements ActionListener, MouseListener {
           String dbPassword = mitarbeiterDAO.getPassword(forename);
           if (password.equals(dbPassword)) {
             // open Main (logged-in part)
+        	  mainView.initGui();
+        	  
           } else {
             JOptionPane.showMessageDialog(null, "Passwort falsch!", "Login-Error",
                 JOptionPane.INFORMATION_MESSAGE);
