@@ -8,5 +8,7 @@ public interface BestellungenDAO {
 
   List<Bestellungen> getAllData();
   
+  String getBestellnummer();
+  
   
 }

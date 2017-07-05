@@ -43,5 +43,28 @@ public class BestellungenJdbcDAO implements BestellungenDAO {
     
     return null;
   }
+  
+  public String getBestellnummer(){
+	  String sql = "SELECT Bestellnummer from BestellStatus";
+	  Connection con = null;
+	  PreparedStatement ps = null;
+	  ResultSet rs = null;
+	  
+	  try {
+	      con = MySqlConnection.getInstance();
+	      ps = con.prepareStatement(sql);
+	      rs = ps.executeQuery();
+
+	      rs.first();
+	      String dbBestellnummer = rs.getString("MAPasswort");
+	      return dbBestellnummer;
+	    } catch (SQLException e) {
+	      throw new CoolShoesException("Es hat einen Fehler bei einer Datenbankabfrage gegeben.",
+	          e.toString());
+	    } finally {
+	      MySqlConnection.closePsRs(ps, rs);
+	    }
+	  
+  }
 
 }

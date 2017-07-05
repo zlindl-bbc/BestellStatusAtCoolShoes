@@ -38,7 +38,6 @@ public class LoginView {
     JPanel panel = new JPanel();
     frame.add(panel);
     loginComponents(panel);
-    LoginView loginView = new LoginView();
 
     frame.setVisible(true);
 
