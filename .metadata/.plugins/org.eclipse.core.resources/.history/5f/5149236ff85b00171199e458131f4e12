@@ -1,6 +1,0 @@
-package ch.it.bzz.coolshoes.dbconnection;
-
-public interface LoginRegisterDAO {
-
-  
-}

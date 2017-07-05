@@ -17,6 +17,10 @@ import ch.it.bzz.coolshoes.exception.CoolShoesException;
 public class MsAccessConnection {
   private static Connection connection;
 
+  /**
+   * get Connection to databasefile
+   * @return
+   */
   public static Connection getConnection() {
     String path = "./Database/CoolShoes.accdb";
 

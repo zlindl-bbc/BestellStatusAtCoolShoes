@@ -28,6 +28,11 @@ public class CoolShoesException extends RuntimeException {
 
   }
 
+  /**
+   * catch and log error into file
+   * 
+   * @param e
+   */
   public static void logError(String e) {
     try {
       String path = WindowsUtil.getCurrentUserDesktopPath() + "\\" + "ErrorLog.txt";
@@ -52,23 +57,38 @@ public class CoolShoesException extends RuntimeException {
 
   }
 
+  /**
+   * Show Message when error have been logged
+   * 
+   * @param successToLog
+   */
   public static void showMessage(boolean successToLog) {
     if (successToLog == true) {
       JOptionPane.showMessageDialog(null,
-          getErrorMessage() + " \nDer Error wurde geloggt in 'Desktop/ErrorLog.txt'.",
-          "Error", JOptionPane.ERROR_MESSAGE);
-    }
-    else {
+          getErrorMessage() + " \nDer Error wurde geloggt in 'Desktop/ErrorLog.txt'.", "Error",
+          JOptionPane.ERROR_MESSAGE);
+    } else {
       JOptionPane.showMessageDialog(null,
-          "-"+getErrorMessage() + " \n- Fehler beim Loggen. Bitte installieren Sie das Programm neu.",
+          "-" + getErrorMessage()
+              + " \n- Fehler beim Loggen. Bitte installieren Sie das Programm neu.",
           "Error", JOptionPane.ERROR_MESSAGE);
     }
   }
 
+  /**
+   * set error message
+   * 
+   * @param errorMessage
+   */
   public void setErrorMessage(String errorMessage) {
-    this.errorMessage = errorMessage;
+    CoolShoesException.errorMessage = errorMessage;
   }
 
+  /**
+   * get error message
+   * 
+   * @return
+   */
   public static String getErrorMessage() {
     return errorMessage;
   }

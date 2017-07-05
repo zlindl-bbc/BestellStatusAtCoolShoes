@@ -11,8 +11,16 @@ import ch.it.bzz.coolshoes.exception.CoolShoesException;
 import ch.it.bzz.coolshoes.model.Bestellungen;
 import ch.it.bzz.coolshoes.util.MySqlConnection;
 
+/**
+ * @author Luca Lindegger
+ * @date 2017-06-29
+ * @version 1.0
+ */
 public class BestellungenJdbcDAO implements BestellungenDAO {
 
+  /**
+   * Get all Data from 'Bestellungen'
+   */
   @Override
   public List<Bestellungen> getAllData() {
     String sql = "SELECT FKKunde, FKStatus, FKMitarbeiter FROM Bestellungen ORDER BY BID";
@@ -44,6 +52,9 @@ public class BestellungenJdbcDAO implements BestellungenDAO {
     return null;
   }
   
+  /**
+   * get Bestellnummer
+   */
   public String getBestellnummer(){
 	  String sql = "SELECT Bestellnummer from BestellStatus";
 	  Connection con = null;

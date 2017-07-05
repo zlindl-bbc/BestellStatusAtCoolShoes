@@ -2,48 +2,56 @@ package ch.it.bzz.coolshoes.view;
 
 import javax.swing.table.AbstractTableModel;
 
+/**
+ * @author Lukas Aschmann
+ * @date 2017-06-22
+ * @version 1.0
+ */
 public class TableModel extends AbstractTableModel {
-	private String[] columnNames = { "First Name", "Last Name", "Sport", "# of Years", "Vegetarian" };
-	private Object[][] data = { { "Kathy", "Smith", "Snowboarding", new Integer(5), new Boolean(false) },
-			{ "John", "Doe", "Rowing", new Integer(3), new Boolean(true) },
-			{ "Sue", "Black", "Knitting", new Integer(2), new Boolean(false) },
-			{ "Jane", "White", "Speed reading", new Integer(20), new Boolean(true) },
-			{ "Joe", "Brown", "Pool", new Integer(10), new Boolean(false) } };
+  private static final long serialVersionUID = 2593966977017504193L;
+  
+  private String[] columnNames = {"First Name", "Last Name", "Sport", "# of Years", "Vegetarian"};
+  private Object[][] data = {{"Kathy", "Smith", "Snowboarding", new Integer(5), new Boolean(false)},
+      {"John", "Doe", "Rowing", new Integer(3), new Boolean(true)},
+      {"Sue", "Black", "Knitting", new Integer(2), new Boolean(false)},
+      {"Jane", "White", "Speed reading", new Integer(20), new Boolean(true)},
+      {"Joe", "Brown", "Pool", new Integer(10), new Boolean(false)}};
 
-	public final Object[] longValues = { "Jane", "Kathy", "None of the above", new Integer(20), Boolean.TRUE };
+  public final Object[] longValues =
+      {"Jane", "Kathy", "None of the above", new Integer(20), Boolean.TRUE};
 
-	public int getColumnCount() {
-		return columnNames.length;
-	}
+  public int getColumnCount() {
+    return columnNames.length;
+  }
 
-	public int getRowCount() {
-		return data.length;
-	}
+  public int getRowCount() {
+    return data.length;
+  }
 
-	public String getColumnName(int col) {
-		return columnNames[col];
-	}
+  public String getColumnName(int col) {
+    return columnNames[col];
+  }
 
-	public Object getValueAt(int row, int col) {
-		return data[row][col];
-	}
+  public Object getValueAt(int row, int col) {
+    return data[row][col];
+  }
 
-	/*
-	 * JTable uses this method to determine the default renderer/ editor for
-	 * each cell. If we didn't implement this method, then the last column would
-	 * contain text ("true"/"false"), rather than a check box.
-	 */
+  /*
+   * JTable uses this method to determine the default renderer/ editor for each cell. If we didn't
+   * implement this method, then the last column would contain text ("true"/"false"), rather than a
+   * check box.
+   */
 
-	/*
-	 * Don't need to implement this method unless your table's editable.
-	 */
-	public boolean isCellEditable(int row, int col) {
-		// Note that the data/cell address is constant,
-		// no matter where the cell appears onscreen.
-		if (col < 2) {
-			return false;
-		} else {
-			return true;
-		}
-	}
+  /*
+   * Don't need to implement this method unless your table's editable.
+   */
+  public boolean isCellEditable(int row, int col) {
+    // Note that the data/cell address is constant,
+    // no matter where the cell appears onscreen.
+    if (col < 2) {
+      return false;
+    } else {
+      return true;
+    }
+  }
 }

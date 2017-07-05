@@ -1,6 +1,0 @@
-package ch.it.bzz.coolshoes.controller;
-
-public class LoginRegisterJDBC implements LoginRegisterDAO {
-
-  private
-}

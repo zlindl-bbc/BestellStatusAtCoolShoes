@@ -1,12 +1,10 @@
 package ch.it.bzz.coolshoes.util;
 
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Properties;
 
 import ch.it.bzz.coolshoes.exception.CoolShoesException;
 
@@ -35,6 +33,9 @@ public class MySqlConnection {
   // Databasepassword
   private static String dbPassword = "tLwKwj9l3k";
 
+  /**
+   * Load driver and create connection
+   */
   public MySqlConnection() {
     try {
       // Load driver
@@ -51,16 +52,28 @@ public class MySqlConnection {
     }
   }
 
+  /**
+   * get instance to the sqlserver
+   * @return
+   */
   public static Connection getInstance() {
     if (con == null)
       new MySqlConnection();
     return con;
   }
-
+/**
+ * set connection
+ * @param con
+ */
   public static void setCon(Connection con) {
     MySqlConnection.con = con;
   }
 
+  /**
+   * close preparedStatement and Resultset
+   * @param ps
+   * @param rs
+   */
   public static void closePsRs(PreparedStatement ps, ResultSet rs) {
     try {
       rs.close();
@@ -70,6 +83,11 @@ public class MySqlConnection {
           e.toString());
     }
   }
+
+  /**
+   * close PreparedStatement
+   * @param ps
+   */
   public static void closePs(PreparedStatement ps) {
     try {
       ps.close();

@@ -4,10 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 import ch.it.bzz.coolshoes.exception.CoolShoesException;
-import ch.it.bzz.coolshoes.util.MsAccessConnection;
 import ch.it.bzz.coolshoes.util.MySqlConnection;
 
 /**
@@ -18,6 +16,9 @@ import ch.it.bzz.coolshoes.util.MySqlConnection;
 
 public class MitarbeiterJdbcDAO implements MitarbeiterDAO {
 
+  /**
+   * check if collaborator's forename is existing
+   */
   public boolean doesExist(String forename) {
     String forename1 = "'" + forename + "';";
     String sql = "SELECT * from Mitarbeiter WHERE MAVorname =" + forename1;
@@ -43,6 +44,9 @@ public class MitarbeiterJdbcDAO implements MitarbeiterDAO {
     }
   }
 
+  /**
+   * get Password from collaborator
+   */
   public String getPassword(String forename) {
     String forename1 = "'" + forename + "'";
     String sql = "SELECT MAPasswort from Mitarbeiter WHERE MAVorname =" + forename1;
@@ -66,11 +70,14 @@ public class MitarbeiterJdbcDAO implements MitarbeiterDAO {
     }
   }
 
+  /**
+   * create new user
+   */
   public boolean createUser(String name, String forename, String password) {
     Connection con = null;
     PreparedStatement ps = null;
-    String values = "('"+name+"', '"+forename+"', '"+password+"')";
-    String sql = "INSERT INTO Mitarbeiter (MAName, MAVorname, MAPasswort) VALUES "+values;
+    String values = "('" + name + "', '" + forename + "', '" + password + "')";
+    String sql = "INSERT INTO Mitarbeiter (MAName, MAVorname, MAPasswort) VALUES " + values;
 
     try {
       con = MySqlConnection.getInstance();
@@ -80,8 +87,7 @@ public class MitarbeiterJdbcDAO implements MitarbeiterDAO {
     } catch (SQLException e) {
       throw new CoolShoesException("Es hat einen Fehler bei einem Datenbankeintrage gegeben.",
           e.toString());
-    }
-    finally {
+    } finally {
       MySqlConnection.closePs(ps);
     }
   }

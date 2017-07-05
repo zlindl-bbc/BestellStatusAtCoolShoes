@@ -65,7 +65,7 @@ public class RegisterView {
     nameField = new JTextField(13);
     nameField.setBounds(100, 10, 160, 25);
     panel.add(nameField);
-    
+
     forenameLabel = new JLabel("Vorname");
     forenameLabel.setBounds(10, 40, 80, 25);
     panel.add(forenameLabel);
@@ -99,7 +99,7 @@ public class RegisterView {
     panel.add(cancelButton);
 
   }
-  
+
   public static String getNameField() {
     return nameField.getText();
   }
@@ -118,8 +118,8 @@ public class RegisterView {
     passwordField.setText("");
     nameField.requestFocusInWindow();
   }
-  
-  public static void main(String[] args){
+
+  public static void main(String[] args) {
     javax.swing.SwingUtilities.invokeLater(new Runnable() {
       public void run() {
         new RegisterView();

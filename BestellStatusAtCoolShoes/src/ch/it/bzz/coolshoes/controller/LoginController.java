@@ -27,6 +27,9 @@ public class LoginController implements ActionListener, MouseListener {
 	MainView mainView = new MainView();
 	LoginView loginView = new LoginView();
 
+	/**
+	 * Actionlistener when Button is clicked in LoginView
+	 */
 	public void actionPerformed(ActionEvent e) {
 		JButton source = (JButton) e.getSource();
 		if (source.getText().equals("Login")) {
@@ -42,7 +45,6 @@ public class LoginController implements ActionListener, MouseListener {
 					if (password.equals(dbPassword)) {
 						// open Main (logged-in part)
 						mainView.initGUI();
-						
 
 					} else {
 						JOptionPane.showMessageDialog(null, "Passwort falsch!", "Login-Error",

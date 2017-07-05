@@ -2,6 +2,11 @@ package ch.it.bzz.coolshoes.model;
 
 import java.sql.Date;
 
+/**
+ * @author Luca Lindegger
+ * @date 2017-06-29
+ * @version 1.0
+ */
 public class BestellStatus {
 
   private int BSID;

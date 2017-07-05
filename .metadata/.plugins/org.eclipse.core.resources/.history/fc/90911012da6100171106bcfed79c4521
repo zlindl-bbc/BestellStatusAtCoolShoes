@@ -1,0 +1,82 @@
+package ch.it.bzz.coolshoes.exception;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import javax.swing.JOptionPane;
+
+import ch.it.bzz.coolshoes.util.WindowsUtil;
+
+/**
+ * @author Luca Lindegger
+ * @version 1.0
+ * @since 2017-06-28
+ */
+
+
+public class CoolShoesException extends RuntimeException {
+
+  private static final long serialVersionUID = 9182225131558976139L;
+  private static String errorMessage;
+
+  public CoolShoesException(String errorMsg, String stackTrace) {
+    setErrorMessage(errorMsg);
+    CoolShoesException.logError(stackTrace);
+
+  }
+
+  /**
+   * catch and log error into file
+   * @param e
+   */
+  public static void logError(String e) {
+    try {
+      String path = WindowsUtil.getCurrentUserDesktopPath() + "\\" + "ErrorLog.txt";
+      File file = new File(path);
+      DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+      Date date = new Date();
+      FileWriter fileWriter = new FileWriter(file, true);
+      fileWriter.write(dateFormat.format(date));
+      fileWriter.write("     ");
+      fileWriter.write(getErrorMessage());
+      fileWriter.write("\r\n");
+      fileWriter.write("                        ");
+      fileWriter.write(e);
+      fileWriter.write("\r\n");
+      fileWriter.write("\r\n");
+      fileWriter.flush();
+      fileWriter.close();
+      showMessage(true);
+    } catch (Exception e2) {
+      showMessage(false);
+    }
+
+  }
+
+  public static void showMessage(boolean successToLog) {
+    if (successToLog == true) {
+      JOptionPane.showMessageDialog(null,
+          getErrorMessage() + " \nDer Error wurde geloggt in 'Desktop/ErrorLog.txt'.",
+          "Error", JOptionPane.ERROR_MESSAGE);
+    }
+    else {
+      JOptionPane.showMessageDialog(null,
+          "-"+getErrorMessage() + " \n- Fehler beim Loggen. Bitte installieren Sie das Programm neu.",
+          "Error", JOptionPane.ERROR_MESSAGE);
+    }
+  }
+
+  public void setErrorMessage(String errorMessage) {
+    this.errorMessage = errorMessage;
+  }
+
+  public static String getErrorMessage() {
+    return errorMessage;
+  }
+
+
+
+}

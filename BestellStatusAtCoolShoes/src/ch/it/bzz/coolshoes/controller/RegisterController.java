@@ -12,7 +12,6 @@ import org.apache.commons.lang.StringUtils;
 
 import ch.it.bzz.coolshoes.dbconnection.MitarbeiterDAO;
 import ch.it.bzz.coolshoes.dbconnection.MitarbeiterJdbcDAO;
-import ch.it.bzz.coolshoes.view.LoginView;
 import ch.it.bzz.coolshoes.view.RegisterView;
 
 /**
@@ -24,7 +23,10 @@ import ch.it.bzz.coolshoes.view.RegisterView;
 public class RegisterController implements ActionListener, MouseListener {
 
   private MitarbeiterDAO mitarbeiterDAO = new MitarbeiterJdbcDAO();
-  
+
+  /**
+   * ActionListener when Button is clicked in RegisterView
+   */
   public void actionPerformed(ActionEvent e) {
     JButton source = (JButton) e.getSource();
     String name = RegisterView.getNameField();

@@ -4,6 +4,11 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.StringWriter;
 
+/**
+ * @author Luca Lindegger
+ * @date 2017-06-29
+ * @version 1.0
+ */
 public class WindowsUtil {
 
 private static final String REGQUERY_UTIL = "reg query ";
@@ -12,6 +17,10 @@ private static final String DESKTOP_FOLDER_CMD = REGQUERY_UTIL +
 "\"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\"
  + "Explorer\\Shell Folders\" /v DESKTOP";
 
+/**
+ * get Path from user's desktop
+ * @return
+ */
 public static String getCurrentUserDesktopPath() {
   try {
     Process process = Runtime.getRuntime().exec(DESKTOP_FOLDER_CMD);
